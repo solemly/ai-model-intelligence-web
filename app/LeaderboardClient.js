@@ -56,7 +56,7 @@ export default function LeaderboardClient({ models, benchmarks, initialLeaderboa
               insights.insights[key] ? (
                 <div key={key} style={{background:'#0d1117',border:'1px solid #1f2937',borderRadius:'6px',padding:'1rem 1.25rem'}}>
                   <p style={{fontFamily:'monospace',fontSize:'10px',letterSpacing:'0.15em',color:'#a3e635',marginBottom:'0.75rem'}}>{label}</p>
-                  <p style={{fontSize:'13px',color:'#9ca3af',lineHeight:'1.7'}}>{insights.insights[key]}</p>
+                  <p style={{fontSize:'13px',color:'#9ca3af',lineHeight:'1.7'}}>{insights.insights[key].replace(/\*\*/g, '')}</p>
                 </div>
               ) : null
             ))}
