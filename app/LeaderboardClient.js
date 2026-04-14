@@ -62,8 +62,8 @@ export default function LeaderboardClient({ models, benchmarks, initialLeaderboa
               return (
                 <div key={key} style={{background:'#0d1117',border:'1px solid #1f2937',borderRadius:'6px',padding:'0.875rem 1rem'}}>
                   <p style={{fontFamily:'monospace',fontSize:'10px',letterSpacing:'0.15em',color:'#a3e635',marginBottom:'0.5rem'}}>{label}</p>
-                  <p style={{fontSize:'13px',color:'#9ca3af',lineHeight:'1.6',margin:0}}>{isExpanded ? text : preview}</p>
-                  {sentences.length > 2 && (
+                  isExpanded ? parts.map((part,i)=><p key={i} style={{fontSize:'13px',color:'#9ca3af',lineHeight:'1.6',margin:i>0?'0.75rem 0 0':'0'}}>{part}</p>) : <p style={{fontSize:'13px',color:'#9ca3af',lineHeight:'1.6',margin:0}}>{preview}</p>
+                  {hasMore && (
                     <button onClick={()=>setExpandedInsight(isExpanded ? null : key)} style={{marginTop:'0.5rem',background:'none',border:'none',color:'#4b5563',fontFamily:'monospace',fontSize:'11px',cursor:'pointer',padding:0,letterSpacing:'0.05em'}}>
                       {isExpanded ? '// collapse' : '// read more'}
                     </button>
